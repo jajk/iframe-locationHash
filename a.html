@@ -6,12 +6,12 @@
 	<body>
 		<script>
 			function startRequest(){
-			    //获得a.html的锚点
+			    	//获得a.html的锚点
 				var _hash = location.hash ? location.hash.substring(1):'';
 				//如果锚点是b.html中的代理ifrmae传来的，则赋值，如somedata
 				if(_hash === 'proxy'){
 				    parent.parent.location.hash = 'somedata';
-					return;
+				    return;
 				}
 				else{
 				    //创建一个iframe
