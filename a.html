@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+	<head>
+		<title>a.html</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	</head>
+	<body>
+		<script>
+			function startRequest(){
+			    //获得a.html的锚点
+				var _hash = location.hash ? location.hash.substring(1):'';
+				//如果锚点是b.html中的代理ifrmae传来的，则赋值，如somedata
+				if(_hash === 'proxy'){
+				    parent.parent.location.hash = 'somedata';
+					return;
+				}
+				else{
+				    //创建一个iframe
+				    var ifr = document.createElement('iframe');
+					ifr.style.display = 'none';
+					//想b.html获取信息
+					ifr.src = 'b.html#paramdo';
+					document.body.appendChild(ifr);
+					//获得b.html的数据
+					setInterval(function(){
+					    try{
+							var data = location.hash ? location.hash.substring(1):'';
+							if(console.log){
+								console.log('Now data is '+ data);
+							}
+						}catch(e){
+							console.log(e);
+						}
+					},2000);
+				}
+			};
+			startRequest();
+		</script>
+	</body>
+</html>
