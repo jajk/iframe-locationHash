@@ -5,7 +5,7 @@
 	</head>
 	<body> 
 		<script>
-		    //如果发现传过来的location.hash是#paramdo，做callBack操作
+		    	//如果发现传过来的location.hash是#paramdo，做callBack操作
 			if(location.hash === '#paramdo'){
 			    callBack();
 			}
@@ -14,7 +14,7 @@
 				    parent.location.hash = 'somedata';
 				}catch(e){
 				    // ie、chrome的安全机制无法修改parent.location.hash，
-					// 所以要利用一个代理iframe，src与a.html同源
+				    // 所以要利用一个代理iframe，src与a.html同源
 				    var ifrproxy = document.createElement('iframe');
 					ifrproxy.style.display = 'none';
 					//这里我指向a.html只是为了模拟同源
